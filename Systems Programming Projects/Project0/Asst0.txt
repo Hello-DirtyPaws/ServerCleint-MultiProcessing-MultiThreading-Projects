@@ -1,0 +1,31 @@
+-------------------------------------------------------------------------------------------
+Authors: Suraj Upadhyay & Manohar Chitoda
+Assignment: Asst0
+Date: September 30, 3018
+
+Description:  
+This assignment involves the use of a program to read a CSV file from STDIN. The command cat <csv_file_name.csv> | ./a.out is passed for the program to be invoked. The code stores the columns of the <csv_file_name.csv> and returns the number(amount) of columns. If cat <csv_file_name.csv> | ./a.out -c <column title> > <outputfile.csv>
+is passed through the argument, the program searches for <column title> in the heading linked-list. If the passed argument existed, the program continues or else it outputs an error message. if the program continues, it then goes on to read the rest of data in the file using STDIN and creates a linked-list. Afterwards a pointer to the linked list is passes to main and saved in the first pointer. Furthermore the the pointer is passed in the divide function for divide and merge to take place. This program is intended to work for any given file 
+ 
+Linked-List design:
+The linked-list is designed to hold an array of pointer to store all the fields respectively. A node represents a row of data in a CSV. This program is designed to work with most of the CSV files. ****This is the extra credit that we did.*****
+
+Divide and merge: The linked list is cut in half using recursive call until the linked list has two nodes to compare. After the comparison takes place merge function is used to merge sorted nodes in a final linked list. The sorting is performed using isDigit and compareTo functions, which were user-defined functions. The isDigit function determines if a string of characters are digits only or a string of letters and other characters. While comparisons are taking place and if the stored string has any trailing white spaces, they are trimmed using the trim function. After the linked list is sorted, a pointer is returned back to main. Finally the pointer to the sorted linked list is passed to the print method to print the linked list.
+
+Assumptions:
+
+We assumed that the best approach to completing this program was to divide and conquer. We assumed the data Reading wouldn't be as difficult, but it was the most crucial and difficult part. We assumed the the data would print as it was stored, but rather it printed with random characters that were not present in the original data. We later found out the strings were tagging on to random characters even though it was out of their boundaries. Dealing with reading the data and accounting for null fields was difficult.
+
+Difficulties:
+
+We had hard time finding out why we kept having segmentation faults. We had to break down our code to small parts for testing and ensuring if would fit in the overall code. We had random characters attached to our data. We had hard time reading the correct data.  We had difficulty trying to sort the last column of data because all the blocks had '\n' attached to it. It was causing discrepancies in the results. 
+
+Testing: We used various csv files to test as we made progress. We made our own files to test on our block of code. Various files involved partitioning the movie_metadata file into smaller parts. Some CSV files from online were used to test as well as some custom made csv files were used for testing.
+
+The interesting fact about the data the we feel is that:
+1. It has a vast variety of data types like strings, numbers, nulls, strings with quotes and trailing spaces.
+2. The column headings are in just one word.
+3. There are 5043 movies with 28 of its attributes.
+4. The data is true.
+5. It is quicker to sort nulls.
+ 

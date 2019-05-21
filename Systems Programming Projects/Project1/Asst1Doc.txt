@@ -1,0 +1,36 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Authors: Suraj Upadhyay & Manohar Chitoda
+Assignment: Asst1
+Date: October 28, 2018
+
+Description:  
+		This assignment involves the use of a program to search a specified directory in search for a CSV file. A Makefile is used to compile this package. The the 			executable file "a.out" is generated. To run this executable various commands are used, for example,"./a.out -c [column] -d [searchThisDir] -o [storeInThisDir]". This 		command is evaluated and starts the code, assuming the input arguments were accurate to their existence.
+Running The Program:
+		Make use of the make file by sending the make command in the command prompt to compile the code and you will have the a.out executable. 
+		To run the executable use ./a.out -c [columnToSort]-d [searchThisDirectory] and -c [saveSortedFileHere] flags can also be used.
+First Algorithm: 
+		The main method start off by checking the argvc count to be odd. If it is even then there must be a hanging argument, which invokes an error. Then the algorithm 		checks for the three flags at all the odd indices of the argv array. The flags are position independent and the algorithm will recognizes them, no matter what order 		they are in. Through this process the program saves respective arguments into their respective parameters. These parameter are then passed to a function to start the 		search algorithm of the directory. 
+Digger Function:
+		Through its various test cases, it opens a directory and searches for a .csv file to sort. This function
+		recursively searches the directories and uses fork() function to generate processes to execute the program faster.Every file and directory calls for a fork and 		performs appropriate function calls to sort the .csv files and write the sorted data to a newly created sorted file. It utilizes most of the function from Asst0 and 		merges fairly well with Asst1.
+
+Assumptions:
+		We had a great difficulty understanding the flow of fork() function. With extensive hours spent in researching the micro details of fork() function We assumed the 		flow of fork() function would be fairly simple. On the contrary, we had much tougher time implementing and utilizing the fork function. We also assumed that the fork 		function would easily be implemented along with recursions, but it made it more difficult to build the project. We assumed the sorted files would not be sorted 		again, but that was not the case. We also assumed it would be easy to count the number of processes, but it was very difficult to do so.
+
+Difficulties:
+		The most difficult difficult part was to correctly use fork function. We were able to traverse the directory but it was difficult to sort the .csv files and store 		them appropriately. Another stage of difficulty arose when we were trying to build the output file name/path. The path required much more attention than we had 		assumed. We had difficulty printing the PID's and the total number of processes. The utter most difficult involved finding why the files were not sorting. As opposed 		to Asst0 we did not face SEGMENTATION FAULT as often, but rather a lot of hidden bugs.
+
+Testing: 
+		Testing for this assignment involved: example directories with .txt files and subdirectories, an existing .csv file
+		renamed to check if it would sort or not, changing the column names to test the -c flag, testing command flags and
+		ensuring they are position independent.
+		We also had to test for the validity of the search algorithm by running the program through our complete system and
+		catching if it would throw any errors.
+		
+The interesting fact about the data the we feel is that:
+We were able to run this through the whole home system and catch that some files were not accessible, because of their
+permission settings. We were amazed at how the PIDs and process could be seen in realtime through the top command.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+
